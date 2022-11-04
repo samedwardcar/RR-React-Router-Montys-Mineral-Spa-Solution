@@ -6,6 +6,8 @@ import Home from './components/Home'
 import About from './components/About'
 import Packages from './components/Packages'
 
+import Nav from 'react-bootstrap/Nav'
+import Container from 'react-bootstrap/Container'
 
 function App() {
   
@@ -31,6 +33,7 @@ function App() {
               </li>
             </ul>
           </div>
+          
         </header>
 
         <div className="display">
@@ -38,6 +41,25 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/packages" render={() => <Packages packages={packages}/>}  />
         </div>
+        <Container>
+    <Nav defaultActiveKey="/" variant="tabs" fill>
+        <Nav.Item>
+            <Nav.Link href="/"> 
+                <Link to="/">Home</Link>
+            </Nav.Link>
+        </Nav.Item>
+        <Nav.Item >
+            <Nav.Link eventKey={"aboutPage"}> 
+                <Link to="/about">About Us</Link>
+            </Nav.Link>
+        </Nav.Item>
+        <Nav.Item >
+            <Nav.Link eventKey={"packagesPage"}> 
+                <Link to="/packages">Our Packages</Link> 
+            </Nav.Link>
+         </Nav.Item>
+    </Nav>
+</Container>
 
       </Router>
 
